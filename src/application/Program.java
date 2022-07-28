@@ -49,9 +49,13 @@ public class Program {
 		System.out.println("Enter Id for delete test: ");
 		int id = sc.nextInt();
 		
-		sellerDao.deleteById(id);
+		int rows = sellerDao.deleteById(id);
 		
-		System.out.println("Delete Complete!");
+		if(rows > 0) {
+			System.out.println("Delete Complete!");
+		}else {
+			System.out.println("Id not found! No rows are affected.");
+		}
 
 
 		sc.close();
